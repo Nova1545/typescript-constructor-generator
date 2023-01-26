@@ -180,10 +180,10 @@ function createConstructor(items: IVar[]) {
       b = true;
     }
   }
-  c += `${breakLine}) {`;
+  c += `${breakLine}) {`.replaceAll(";", "");
   b = false;
   for (let i = 0; i < items.length; i++) {
-    c += `\n${tab}${tab}this.` + items[i].name + ' = ' + items[i].figure;
+    c += `\n${tab}${tab}this.` + items[i].name + ' = ' + items[i].figure + ";";
   }
   c += `\n${tab}}`;
   return c;
