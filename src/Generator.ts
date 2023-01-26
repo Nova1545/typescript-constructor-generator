@@ -175,12 +175,12 @@ function createConstructor(items: IVar[]) {
     if (breaking) {
       c += `${tab}${tab}`;
     }
-    c += items[i].figure + ': ' + items[i].typeName;
+    c += items[i].figure + ': ' + items[i].typeName.replaceAll(";", "");
     if (!b) {
       b = true;
     }
   }
-  c += `${breakLine}) {`.replaceAll(";", "");
+  c += `${breakLine}) {`;
   b = false;
   for (let i = 0; i < items.length; i++) {
     c += `\n${tab}${tab}this.` + items[i].name + ' = ' + items[i].figure + ";";
